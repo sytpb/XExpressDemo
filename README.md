@@ -18,3 +18,6 @@ Roadmap
 SF(V2)  --> STO  -->  YunDa --> Others .... 
 
 
+Discussing ChatGroup
+----
+Adding wexin 'pip9pig' will invate you in ... 
