@@ -2,8 +2,8 @@ const request = require('request')
 var crypto = require('crypto');
 //var fetch = require('node-fetch');
 var querystring = require('querystring');
-let company_id = "f5de38764d0c4c399e5d70dfce81c276";
-let key = "6c3d9635056f";
+let company_id = "f5de38764d0c4c39111111111111";
+let key = "6c3d961111111111111111";
 let requestBody = {
   data: "['728350000001']",
   company_id: company_id,

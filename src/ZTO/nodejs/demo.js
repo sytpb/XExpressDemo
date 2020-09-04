@@ -1,9 +1,9 @@
 const request = require('request')
 var crypto = require('crypto');
-var fetch = require('node-fetch');
+//var fetch = require('node-fetch');
 var querystring = require('querystring');
-let company_id = "your_company_id";
-let key = "your_key";
+let company_id = "f5de38764d0c4c39111111111111";
+let key = "6c3d961111111111111111";
 let requestBody = {
   data: "['728350000001']",
   company_id: company_id,
@@ -24,7 +24,7 @@ let data_digest = crypto.createHash('md5')
 var query_string_urlencoded = querystring.stringify(requestBody);
 
 
-request("https://japi.zto.com/traceInterfaceNewTraces", {
+/*request("https://japi.zto.com/traceInterfaceNewTraces", {
       method: 'POST',
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -39,3 +39,30 @@ request("https://japi.zto.com/traceInterfaceNewTraces", {
         })
       }
     })
+*/
+    
+    
+    request.post("https://japi.zto.com/traceInterfaceNewTraces", {     
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "x-companyid":company_id,
+            "x-datadigest":data_digest
+        },
+        form: query_string_urlencoded,
+        },function (error, response, body) {
+            if (error) {
+                console.log("--------------------------------------");
+                console.error(`请求遇到问题: ${error}`);
+                console.log("--------------------------------------");
+            }
+            if (body) {
+                console.log("--------------------------------------");
+                console.log("返回报文: " + body);
+                console.log("--------------------------------------");
+            }
+            if(response){
+                console.log(response.body);
+                console.log('---------------------------------');
+            }
+
+        })
